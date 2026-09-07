@@ -1,5 +1,5 @@
 ---
-name: adv-CognitiveBiases
+name: cognitive-biases
 user-invocable: true
 description: |
   Evidence-based cognitive bias advisor with 5-tier ranking of 111 biases by effect sizes
@@ -11,9 +11,9 @@ description: |
   Russian triggers: когнитивные искажения, ошибки мышления, проверка на искажения,
   предвзятость, якорение, фрейминг, ловушка невозвратных затрат, принятие решений,
   дебайзинг, аудит решения, Даннинг-Крюгер, слепые пятна в мышлении.
-  Invoke via /advisors:adv-CognitiveBiases with the decision or situation.
+  Invoke via /cognitive-biases with the decision or situation.
   DO NOT TRIGGER when: the user wants a full council verdict on a hard decision
-  (use /advisors:adv-Decision — it runs this lens inside).
+  (use /advisor-decision — it runs this lens inside).
 argument-hint: "<the decision or situation to scan for biases>"
 allowed-tools:
   - Read
@@ -31,7 +31,7 @@ model: opus
 
 ```
 PLUGIN_ROOT = ${CLAUDE_PLUGIN_ROOT}
-MEMORY_DIR  = ${user_config.ADVISORS_MEMORY_DIR}
+MEMORY_DIR  = ${user_config.MEMORY_DIR}
 PROFILE     = {MEMORY_DIR}/Профили/adv-CognitiveBiases.md
 ```
 
@@ -39,7 +39,7 @@ Run this gate before anything else, every time:
 
 1. `MEMORY_DIR` empty, or the literal text `${user_config` visible in it → say so and continue
    **without memory**: this advisor still works, it just will not remember the session.
-   To fix it: `/plugin` → advisors → settings → `ADVISORS_MEMORY_DIR`, or
+   To fix it: `/plugin` → cognitive-biases → settings → `MEMORY_DIR`, or
    `/plugin configure advisors@<marketplace>`.
 2. Path starts with `~/` → replace `~` with `$HOME` before any write.
 3. Unpack the skeleton once (idempotent, never overwrites existing files):
