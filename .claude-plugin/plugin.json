@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "cognitive-biases",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Проверка решения на когнитивные искажения",
   "description": "Доказательный советник по когнитивным искажениям: 111 искажений в пяти тирах по размеру эффекта и репликации, структурный Bias Scan ситуации, протокол дебайсинга по каждому искажению, разбор популярных мифов.",
   "author": {
